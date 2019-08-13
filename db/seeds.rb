@@ -7,10 +7,12 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 require 'faker'
 
+Article.destroy_all
+
 10.times do
   Article.create!(
     title: Faker::Book.title,
-    content: Faker::Lorem.words(12, true),
+    content: Faker::Lorem.words(12, true).join(" "),
     created_at: Faker::Time.between(DateTime.now - 1, DateTime.now)
   )
 end
